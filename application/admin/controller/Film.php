@@ -4,27 +4,46 @@ namespace app\admin\controller;
 
 use app\admin\common\Base;
 use think\Request;
-use app\admin\model\Banner as BannerModel;
+use app\admin\model\Film as FilmModel;
+use app\admin\model\Country;
+use app\admin\model\Drive;
+use app\admin\model\Format;
+use app\admin\model\Release;
+use app\admin\model\Type;
 
-class Banner extends Base
+class Film extends Base
 {
-    //显示轮播页面
+    //显示电影列表
     public function index()
     {
-        $data = BannerModel::all();
-         $count =  BannerModel::count();
+//        $data = FilmModel::all(function($query){
+//            $query->order('desc');
+//        });
+        $data =  FilmModel::order('desc')->paginate(10);
+
+         $count =  FilmModel::count();
 //        $data = collection($data)->toArray();
         $this->assign('data',$data);
         $this->assign('count',$count);
 //        p($data);die;
-        return $this->fetch('banner_list');
+        return $this->fetch('film_list');
     }
 
-    //显示添加轮播页面
+    //显示添加电影页面
     public function addIndex()
     {
+        $country = Country::all();
+        $this->assign('country',$country);
+        $drive = Drive::all();
+        $this->assign('drive',$drive);
+        $format = Format::all();
+        $this->assign('format',$format);
+        $release = Release::all();
+        $this->assign('release',$release);
+        $type = Type::all();
+        $this->assign('type',$type);
 
-        return $this->fetch('banner_add');
+        return $this->fetch('film_add');
     }
 
 
@@ -51,8 +70,9 @@ class Banner extends Base
                 $this->error($info->getError());
             }
             $data['image'] = $info->getSaveName();
+            $data['update_time'] = time();
 
-           $res = BannerModel::create($data);
+           $res = FilmModel::create($data);
             if(is_null($res)){
                 $this->error('文件添加失败');
             }else{

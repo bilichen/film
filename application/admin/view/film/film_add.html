@@ -1,0 +1,155 @@
+{include file="public/header" /}
+    <body>
+
+
+
+        <div class="x-body">
+
+            <form  action="{:url('upload')}" enctype="multipart/form-data" method="post">
+
+                <div class="layui-form-item">
+                    <label for="link" class="layui-form-label">
+                        <span class="x-red">*</span>影视图片
+                    </label>
+                    <div class="layui-input-inline">
+                      <div class="site-demo-upbar">
+                        <input type="file" name="image"  id="image">
+                      </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label for="link" class="layui-form-label">
+                        <span class="x-red">*</span>片名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="name" name="name" required="" lay-verify="required"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="selectAll">
+                    <label for="link" class="select_item">
+                        <span class="x-red">*</span>影视类型：
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="type">
+                            {volist name='type' id='v'}
+                                 <option value="{$v.name}">{$v.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+
+                    <label for="link" class="select_item">
+                        <span class="x-red">*</span>出品国家：
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="country">
+                            {volist name='country' id='v'}
+                                  <option value="{$v.name}">{$v.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+
+                    <label for="link" class="select_item">
+                        <span class="x-red">*</span>影片格式：
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="format">
+                            {volist name='format' id='v'}
+                                <option value="{$v.name}">{$v.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="selectAll">
+                    <label for="link" class="select_item">
+                        <span class="x-red">*</span>上映年份：
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="release">
+                            {volist name='release' id='v'}
+                                <option value="{$v.time}">{$v.time}</option>
+                            {/volist}
+                        </select>
+                    </div>
+
+                    <label for="link" class="select_item">
+                        <span class="x-red">*</span>保存盘符：
+                    </label>
+                    <div class="layui-input-inline">
+                        <select name="drive">
+                            {volist name='drive' id='v'}
+                                 <option value="{$v.name}">{$v.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="layui-form-item">
+                    <label for="size" class="layui-form-label">
+                        <span class="x-red">*</span>影片大小
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="size" name="size" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="link" class="layui-form-label">
+                        <span class="x-red">*</span>评分
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="score" name="score" required="" lay-verify="required"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="desc" class="layui-form-label">
+                        <span class="x-red">*</span>描述
+                    </label>
+                    <div class="layui-input-inline">
+<!--                        <input type="tex" id="desc" name="desc" required="" lay-verify="required"-->
+<!--                        autocomplete="off" class="layui-input">-->
+                        <textarea rows="3" cols="50" id="desc" name="desc">
+
+                        </textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                    </label>
+                    <button type="submit"  class="layui-btn" lay-filter="add" lay-submit="">
+                        增加
+                    </button>
+                </div>
+            </form>
+        </div>
+        {include file="public/admin_js" /}
+        <script src="./js/x-layui.js" charset="utf-8">
+        </script>
+<!--        <script>-->
+<!--            layui.use(['form','layer','upload'], function(){-->
+<!--                $ = layui.jquery;-->
+<!--              var form = layui.form()-->
+<!--              ,layer = layui.layer;-->
+<!---->
+<!---->
+<!--                  //图片上传接口-->
+<!--                  layui.upload({-->
+<!--    //                url: '{:url("banner/upload")}' //上传接口-->
+<!--    //                ,success: function(res){ //上传成功后的回调-->
+<!--    //                    console.log(res);-->
+<!--    //                  $('#LAY_demo_upload').attr('src',res.url);-->
+<!--    //                }-->
+<!--                  });-->
+<!---->
+<!--            });-->
+<!--        </script>-->
+
+    </body>
+
+</html>

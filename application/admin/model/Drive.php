@@ -5,7 +5,7 @@ namespace app\admin\model;
 
 use think\Model;
 
-class Banner extends Model
+class Drive extends Model
 {
 
 }

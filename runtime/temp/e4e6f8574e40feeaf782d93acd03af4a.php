@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"E:\xampp\htdocs\film\public/../application/index\view\index\index.html";i:1511415715;s:72:"E:\xampp\htdocs\film\public/../application/index\view\public\header.html";i:1511415715;s:73:"E:\xampp\htdocs\film\public/../application/index\view\public\base_js.html";i:1511414557;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"E:\xampp\htdocs\film\public/../application/index\view\index\index.html";i:1511432541;s:72:"E:\xampp\htdocs\film\public/../application/index\view\public\header.html";i:1511432541;s:73:"E:\xampp\htdocs\film\public/../application/index\view\public\base_js.html";i:1511432541;}*/ ?>
 <!doctype html>
 <html lang="zh-cmn-Hans" class="ua-windows ua-webkit">
 

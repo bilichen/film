@@ -1,10 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"E:\xampp\htdocs\film\public/../application/admin\view\login\login.html";i:1510545143;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1510462623;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"E:\xampp\htdocs\film\public/../application/admin\view\login\login.html";i:1511432541;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511432541;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>
-    X-admin v1.0
+    品美高清后台管理
   </title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

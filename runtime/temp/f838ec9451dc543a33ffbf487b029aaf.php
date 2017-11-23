@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"E:\xampp\htdocs\film\public/../application/admin\view\index\index.html";i:1510545498;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511416120;s:70:"E:\xampp\htdocs\film\public/../application/admin\view\public\left.html";i:1511416677;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511375776;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"E:\xampp\htdocs\film\public/../application/admin\view\index\index.html";i:1511432541;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511432541;s:70:"E:\xampp\htdocs\film\public/../application/admin\view\public\left.html";i:1511435758;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511432541;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,7 @@
             <i class="layui-icon" style="top: 1px;">&#xe63a;</i>
         </a>
         </li> -->
-      <li class="layui-nav-item x-index"><a href="index.html">前台首页</a></li>
+      <li class="layui-nav-item x-index"><a href="index.php">前台首页</a></li>
     </ul>
   </div>
 </div>
@@ -67,13 +67,13 @@
       </li>
       <li class="layui-nav-item">
         <a class="javascript:;" href="javascript:;">
-          <i class="layui-icon" style="top: 3px;">&#xe634;</i><cite>轮播管理</cite>
+          <i class="layui-icon" style="top: 3px;">&#xe634;</i><cite>影片管理</cite>
         </a>
         <dl class="layui-nav-child">
           <dd class="">
           <dd class="">
-            <a href="javascript:;" _href="<?php echo url('banner/index'); ?>">
-              <cite>轮播列表</cite>
+            <a href="javascript:;" _href="<?php echo url('film/index'); ?>">
+              <cite>电影列表</cite>
             </a>
           </dd>
           </dd>
