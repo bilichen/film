@@ -4,12 +4,12 @@
             <span class="layui-breadcrumb">
               <a><cite>首页</cite></a>
               <a><cite>影片管理</cite></a>
-              <a><cite>电影列表</cite></a>
+              <a><cite>电视列表</cite></a>
             </span>
             <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
         </div>
         <div class="x-body">
-            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button class="layui-btn" onclick="banner_add('添加用户','{:url("film/addIndex")}','700','600')"><i class="layui-icon">&#xe608;</i>添加</button><span class="x-right" style="line-height:40px">共有数据：{$count} 条</span></xblock>
+            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button class="layui-btn" onclick="banner_add('添加用户','{:url("tv/addIndex")}','700','600')"><i class="layui-icon">&#xe608;</i>添加</button><span class="x-right" style="line-height:40px">共有数据：{$count} 条</span></xblock>
             <table class="layui-table">
                 <thead>
                     <tr>
@@ -24,6 +24,9 @@
                         </th>
                         <th>
                             缩略图
+                        </th>
+                        <th>
+                            集数
                         </th>
                         <th>
                             类型
@@ -71,8 +74,12 @@
                                 <img  src="__ROOT__/uploads/{$vo.image}"  width="50">
                             </td>
                             <td >
+                                {$vo.count}
+                            </td>
+                            <td >
                                 {$vo.type}
                             </td>
+
                             <td >
                                 {$vo.country}
                             </td>
@@ -98,11 +105,11 @@
                                 <a style="text-decoration:none" onclick="banner_stop(this,'10001')" href="javascript:;" title="不显示">
                                     <i class="layui-icon">&#xe601;</i>
                                 </a>
-                                <a title="编辑" href="javascript:;" onclick="film_edit('编辑','{:url("film/edit")}'+'?id='+{$vo.id},'4','','510')"
+                                <a title="编辑" href="javascript:;" onclick="banner_edit('编辑','banner-edit.html','4','','510')"
                                 class="ml-5" style="text-decoration:none">
                                     <i class="layui-icon">&#xe642;</i>
                                 </a>
-                                <a title="删除" href="javascript:;" onclick="film_del('{$vo.name}','{$vo.id}')"
+                                <a title="删除" href="javascript:;" onclick="banner_del(this,'1')"
                                 style="text-decoration:none">
                                     <i class="layui-icon">&#xe640;</i>
                                 </a>
@@ -169,36 +176,16 @@
                 });
             }
             // 编辑
-            function film_edit (title,url,id,w,h) {
+            function banner_edit (title,url,id,w,h) {
                 x_admin_show(title,url,w,h); 
             }
-
-            /*-删除*/
-            function cate_del(name,id){
-                layer.confirm('确定要删除'+name+'影片吗？',{
-                    btn:['确定','取消']
-                },function(index){
-                    layer.close(index);
-                    console.log("点击了确定");
-                    $.ajax({
-                        type:'POST',
-                        url:"{:url('film/del')}",
-                        data: {"id":id},
-                        dataType:"json",
-                        success:function (data){
-                            if(data.status==1){
-                                alert(data.message);
-                                window.location.reload();
-                            }else{
-                                alert(data.message);
-
-                            }
-                        }
-                    })
-
-                },function(){
-                    console.log("点击了取消");
-                })
+            /*删除*/
+            function banner_del(obj,id){
+                layer.confirm('确认要删除吗？',function(index){
+                    //发异步删除数据
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+                });
             }
             </script>
 

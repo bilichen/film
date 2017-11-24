@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"E:\xampp\htdocs\film\public/../application/admin\view\film\film_list.html";i:1511459815;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511432541;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511432541;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"E:\xampp\htdocs\film\public/../application/admin\view\film\film_list.html";i:1511513030;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511416120;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511375776;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +84,7 @@
                                 <?php echo $vo['name']; ?>
                             </td>
                             <td>
-<!--                                <img  src="__ROOT__/uploads/<?php echo $vo['image']; ?>"  width="50">-->
+                                <img  src="__ROOT__/uploads/<?php echo $vo['image']; ?>"  width="50">
                             </td>
                             <td >
                                 <?php echo $vo['type']; ?>
@@ -114,11 +114,11 @@
                                 <a style="text-decoration:none" onclick="banner_stop(this,'10001')" href="javascript:;" title="不显示">
                                     <i class="layui-icon">&#xe601;</i>
                                 </a>
-                                <a title="编辑" href="javascript:;" onclick="banner_edit('编辑','banner-edit.html','4','','510')"
+                                <a title="编辑" href="javascript:;" onclick="film_edit('编辑','<?php echo url("film/edit"); ?>'+'?id='+<?php echo $vo['id']; ?>,'4','','510')"
                                 class="ml-5" style="text-decoration:none">
                                     <i class="layui-icon">&#xe642;</i>
                                 </a>
-                                <a title="删除" href="javascript:;" onclick="banner_del(this,'1')"
+                                <a title="删除" href="javascript:;" onclick="film_del('<?php echo $vo['name']; ?>','<?php echo $vo['id']; ?>')"
                                 style="text-decoration:none">
                                     <i class="layui-icon">&#xe640;</i>
                                 </a>
@@ -151,12 +151,12 @@
 
               //以上模块根据需要引入
 
-                layer.ready(function(){ //为了layer.ext.js加载完毕再执行
-                  layer.photos({
-                    photos: '#x-img'
-                    //,shift: 5 //0-6的选择，指定弹出图片动画类型，默认随机
-                  });
-                }); 
+//                layer.ready(function(){ //为了layer.ext.js加载完毕再执行
+//                  layer.photos({
+//                    photos: '#x-img'
+//                    //,shift: 5 //0-6的选择，指定弹出图片动画类型，默认随机
+//                  });
+//                });
               
             });
 
@@ -193,16 +193,36 @@
                 });
             }
             // 编辑
-            function banner_edit (title,url,id,w,h) {
+            function film_edit (title,url,id,w,h) {
                 x_admin_show(title,url,w,h); 
             }
-            /*删除*/
-            function banner_del(obj,id){
-                layer.confirm('确认要删除吗？',function(index){
-                    //发异步删除数据
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!',{icon:1,time:1000});
-                });
+
+            /*-删除*/
+            function cate_del(name,id){
+                layer.confirm('确定要删除'+name+'影片吗？',{
+                    btn:['确定','取消']
+                },function(index){
+                    layer.close(index);
+                    console.log("点击了确定");
+                    $.ajax({
+                        type:'POST',
+                        url:"<?php echo url('film/del'); ?>",
+                        data: {"id":id},
+                        dataType:"json",
+                        success:function (data){
+                            if(data.status==1){
+                                alert(data.message);
+                                window.location.reload();
+                            }else{
+                                alert(data.message);
+
+                            }
+                        }
+                    })
+
+                },function(){
+                    console.log("点击了取消");
+                })
             }
             </script>
 

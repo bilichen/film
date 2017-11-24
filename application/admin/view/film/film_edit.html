@@ -13,7 +13,8 @@
                     </label>
                     <div class="layui-input-inline">
                       <div class="site-demo-upbar">
-                        <input type="file" name="image"  id="image">
+                          <img  src="__ROOT__/uploads/{$film.image}"  width="30">
+                          <input type="file" name="image"  id="image" >
                       </div>
                     </div>
                 </div>
@@ -24,7 +25,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <input type="text" id="name" name="name" required="" lay-verify="required"
-                               autocomplete="off" class="layui-input">
+                               autocomplete="off" class="layui-input" value="{$film.name}">
                     </div>
                 </div>
 
@@ -35,7 +36,8 @@
                     <div class="layui-input-inline">
                         <select name="type">
                             {volist name='type' id='v'}
-                                 <option value="{$v.name}">{$v.name}</option>
+<!--                                 <option value="{$v.name}">{$v.name}</option>-->
+                            <option {eq name="film.type" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -46,7 +48,8 @@
                     <div class="layui-input-inline">
                         <select name="country">
                             {volist name='country' id='v'}
-                                  <option value="{$v.name}">{$v.name}</option>
+<!--                                  <option value="{$v.name}">{$v.name}</option>-->
+                            <option {eq name="film.country" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -57,7 +60,8 @@
                     <div class="layui-input-inline">
                         <select name="format">
                             {volist name='format' id='v'}
-                                <option value="{$v.name}">{$v.name}</option>
+<!--                                <option value="{$v.name}">{$v.name}</option>-->
+                            <option {eq name="film.format" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -70,7 +74,8 @@
                     <div class="layui-input-inline">
                         <select name="release">
                             {volist name='release' id='v'}
-                                <option value="{$v.time}">{$v.time}</option>
+<!--                                <option value="{$v.time}">{$v.time}</option>-->
+                            <option {eq name="film.release" value="$v['time']" }selected{/eq} value="{$v['time']}">{$v['time']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -81,7 +86,9 @@
                     <div class="layui-input-inline">
                         <select name="drive">
                             {volist name='drive' id='v'}
-                                 <option value="{$v.name}">{$v.name}</option>
+<!--                                 <option value="{$v.name}">{$v.name}</option>-->
+                            <option {eq name="film.drive" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
+
                             {/volist}
                         </select>
                     </div>
@@ -95,7 +102,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <input type="text" id="size" name="size" required="" lay-verify="required"
-                        autocomplete="off" class="layui-input">
+                        autocomplete="off" class="layui-input" value="{$film.size}">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -104,7 +111,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <input type="text" id="score" name="score" required="" lay-verify="required"
-                        autocomplete="off" class="layui-input">
+                        autocomplete="off" class="layui-input" value="{$film.score}">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -114,7 +121,7 @@
                     <div class="layui-input-inline">
 <!--                        <input type="tex" id="desc" name="desc" required="" lay-verify="required"-->
 <!--                        autocomplete="off" class="layui-input">-->
-                        <textarea rows="3" cols="50" id="desc" name="desc">
+                        <textarea rows="3" cols="50" id="desc" name="desc" value="{$film.desc}">
 
                         </textarea>
                     </div>
@@ -123,7 +130,7 @@
                     <label for="L_repass" class="layui-form-label">
                     </label>
                     <button type="submit"  class="layui-btn" lay-filter="add" lay-submit="">
-                        增加
+                        保存修改
                     </button>
                 </div>
             </form>

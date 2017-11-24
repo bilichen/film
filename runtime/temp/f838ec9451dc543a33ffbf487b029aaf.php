@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"E:\xampp\htdocs\film\public/../application/admin\view\index\index.html";i:1511432541;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511432541;s:70:"E:\xampp\htdocs\film\public/../application/admin\view\public\left.html";i:1511435758;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511432541;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:70:"E:\xampp\htdocs\film\public/../application/admin\view\index\index.html";i:1510545498;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511416120;s:70:"E:\xampp\htdocs\film\public/../application/admin\view\public\left.html";i:1511469408;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511375776;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,6 +74,13 @@
           <dd class="">
             <a href="javascript:;" _href="<?php echo url('film/index'); ?>">
               <cite>电影列表</cite>
+            </a>
+          </dd>
+          </dd>
+          <dd class="">
+          <dd class="">
+            <a href="javascript:;" _href="<?php echo url('tv/index'); ?>">
+              <cite>电视列表</cite>
             </a>
           </dd>
           </dd>
