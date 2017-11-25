@@ -19,9 +19,9 @@ return [
         // 缓存有效期为永久有效
         'expire' => 0,
     ],
-//    'paginate' => [
-//        'type'      => 'page\Page',
-//        'var_page'  => 'page',
-//        'list_rows' => 15,
-//    ],
+    'paginate'               => [
+        'type'      => 'page\Page',//分页类
+        'var_page'  => 'page',
+        'list_rows' => 15,
+    ],
 ];

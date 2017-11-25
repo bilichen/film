@@ -6,11 +6,7 @@ use app\admin\common\Base;
 use think\Cache;
 use think\Request;
 use app\admin\model\Film as FilmModel;
-use app\admin\model\Country;
-use app\admin\model\Drive;
-use app\admin\model\Format;
-use app\admin\model\Release;
-use app\admin\model\Type;
+
 
 
 class Film extends Base
@@ -34,8 +30,18 @@ class Film extends Base
     //显示添加电影页面
     public function addIndex()
     {
-       $this->loadSelectData();
+        $this->assign2html();
+
         return $this->fetch('film_add');
+    }
+
+    private function assign2html(){
+        $data = loadSelectData();
+        $this->assign('country',$data['country']);
+        $this->assign('drive',$data['drive']);
+        $this->assign('format',$data['format']);
+        $this->assign('release',$data['release']);
+        $this->assign('type',$data['type']);
     }
 
 
@@ -82,37 +88,12 @@ class Film extends Base
         $film =  FilmModel::get($id);
 //        p($film);die;
         $this->assign('film',$film);
-        $this->loadSelectData();
+        $this->assign2html();
         return $this->fetch('film_edit');
 
     }
 
-    private function loadSelectData(){
-        if(!Cache::get('film_country')){//没有缓存数据，进行读取数据库
-            $country = Country::all();
-            $this->assign('country',$country);
-            $drive = Drive::all();
-            $this->assign('drive',$drive);
-            $format = Format::all();
-            $this->assign('format',$format);
-            $release = Release::all();
-            $this->assign('release',$release);
-            $type = Type::all();
-            $this->assign('type',$type);
 
-            Cache::set('film_country',$country,600);
-            Cache::set('film_drive',$drive,600);
-            Cache::set('film_format',$format,600);
-            Cache::set('film_release',$release,600);
-            Cache::set('film_type',$type,600);
-        }else{
-            $this->assign('country',Cache::get('film_country'));
-            $this->assign('drive',Cache::get('film_drive'));
-            $this->assign('format',Cache::get('film_format'));
-            $this->assign('release',Cache::get('film_release'));
-            $this->assign('type',Cache::get('film_type'));
-        }
-    }
 
     public function update(){
         $data = $this->request->param();
