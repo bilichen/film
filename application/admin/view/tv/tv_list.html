@@ -32,7 +32,7 @@
                             类型
                         </th>
                         <th>
-                            发行国家
+                            国家
                         </th>
                         <th>
                             盘符
@@ -45,7 +45,7 @@
                             格式
                         </th>
                         <th>
-                            上映时间
+                            上映
                         </th>
                         <th>
                             更新时间
@@ -105,11 +105,11 @@
                                 <a style="text-decoration:none" onclick="banner_stop(this,'10001')" href="javascript:;" title="不显示">
                                     <i class="layui-icon">&#xe601;</i>
                                 </a>
-                                <a title="编辑" href="javascript:;" onclick="banner_edit('编辑','banner-edit.html','4','','510')"
+                                <a title="编辑" href="javascript:;" onclick="tv_edit('编辑','{:url("tv/edit")}'+'?id='+{$vo.id},'4','','510')"
                                 class="ml-5" style="text-decoration:none">
                                     <i class="layui-icon">&#xe642;</i>
                                 </a>
-                                <a title="删除" href="javascript:;" onclick="banner_del(this,'1')"
+                                <a title="删除" href="javascript:;" onclick="tv_del('{$vo.name}','{$vo.id}')"
                                 style="text-decoration:none">
                                     <i class="layui-icon">&#xe640;</i>
                                 </a>
@@ -176,16 +176,35 @@
                 });
             }
             // 编辑
-            function banner_edit (title,url,id,w,h) {
-                x_admin_show(title,url,w,h); 
+            function tv_edit (title,url,id,w,h) {
+                x_admin_show(title,url,w,h);
             }
             /*删除*/
-            function banner_del(obj,id){
-                layer.confirm('确认要删除吗？',function(index){
-                    //发异步删除数据
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!',{icon:1,time:1000});
-                });
+            function tv_del(name,id){
+                layer.confirm('确定要删除'+name+'影片吗？',{
+                    btn:['确定','取消']
+                },function(index){
+                    layer.close(index);
+                    console.log("点击了确定");
+                    $.ajax({
+                        type:'POST',
+                        url:"{:url('tv/delete')}",
+                        data: {"id":id},
+                        dataType:"json",
+                        success:function (data){
+                            if(data.status==1){
+                                alert(data.message);
+                                window.location.reload();
+                            }else{
+                                alert(data.message);
+
+                            }
+                        }
+                    })
+
+                },function(){
+                    console.log("点击了取消");
+                })
             }
             </script>
 

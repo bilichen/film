@@ -4,7 +4,6 @@ namespace app\admin\controller;
 
 use app\admin\common\Base;
 use think\Cache;
-use think\Request;
 use app\admin\model\Tv as TvModel;
 use app\admin\model\Country;
 use app\admin\model\Drive;
@@ -20,7 +19,7 @@ class Tv extends Base
 //        $data = FilmModel::all(function($query){
 //            $query->order('desc');
 //        });
-        $data =  TvModel::order('desc')->paginate(10);
+        $data =  TvModel::order('id','desc')->paginate(10);
 
          $count =  TvModel::count();
 //        $data = collection($data)->toArray();
@@ -30,35 +29,13 @@ class Tv extends Base
         return $this->fetch('tv_list');
     }
 
-    //显示添加电影页面
+    //显示添加电视页面
     public function addIndex()
     {
-       if(!Cache::get('tv_country')){//没有缓存数据，进行读取数据库
-           $country = Country::all();
-           $this->assign('country',$country);
-           $drive = Drive::all();
-           $this->assign('drive',$drive);
-           $format = Format::all();
-           $this->assign('format',$format);
-           $release = Release::all();
-           $this->assign('release',$release);
-           $type = Type::all();
-           $this->assign('type',$type);
-
-           Cache::set('tv_country',$country,600);
-           Cache::set('tv_drive',$drive,600);
-           Cache::set('tv_format',$format,600);
-           Cache::set('tv_release',$release,600);
-           Cache::set('tv_type',$type,600);
-       }else{
-           $this->assign('country',Cache::get('tv_country'));
-           $this->assign('drive',Cache::get('tv_drive'));
-           $this->assign('format',Cache::get('tv_format'));
-           $this->assign('release',Cache::get('tv_release'));
-           $this->assign('type',Cache::get('tv_type'));
-       }
+        $this->loadSelectData();
         return $this->fetch('tv_add');
     }
+
 
 
     public function upload(){
@@ -96,27 +73,66 @@ class Tv extends Base
         }
 
     }
-
-    /**
-     * 保存更新的资源
-     *
-     * @param  \think\Request  $request
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function update(Request $request, $id)
+    //编辑修改tv页面
+    public function edit($id)
     {
         //
+        $tv =  TvModel::get($id);
+//        p($film);die;
+        $this->assign('tv',$tv);
+        $this->loadSelectData();
+        return $this->fetch('tv_edit');
+
     }
 
-    /**
-     * 删除指定资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
+    private function loadSelectData(){
+        if(!Cache::get('film_country')){//没有缓存数据，进行读取数据库
+            $country = Country::all();
+            $this->assign('country',$country);
+            $drive = Drive::all();
+            $this->assign('drive',$drive);
+            $format = Format::all();
+            $this->assign('format',$format);
+            $release = Release::all();
+            $this->assign('release',$release);
+            $type = Type::all();
+            $this->assign('type',$type);
+
+            Cache::set('film_country',$country,600);
+            Cache::set('film_drive',$drive,600);
+            Cache::set('film_format',$format,600);
+            Cache::set('film_release',$release,600);
+            Cache::set('film_type',$type,600);
+        }else{
+            $this->assign('country',Cache::get('film_country'));
+            $this->assign('drive',Cache::get('film_drive'));
+            $this->assign('format',Cache::get('film_format'));
+            $this->assign('release',Cache::get('film_release'));
+            $this->assign('type',Cache::get('film_type'));
+        }
+    }
+
+    public function update(){
+        $data = $this->request->param();
+//        p($data);die;
+        $res = TvModel::where('id', $data['id'])->update($data);
+        if(is_null($res)){
+            $this->error('文件修改失败');
+        }else{
+
+            $this->success('文件修改成功...');
+        }
+
+    }
+
+
+    //删除
     public function delete($id)
     {
-        //
+
+        TvModel::destroy($id);
+        $status = 1;
+        $message = '删除成功';
+        return ['status' => $status, 'message' => $message];
     }
 }

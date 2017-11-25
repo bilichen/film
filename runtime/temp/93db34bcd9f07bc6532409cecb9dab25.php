@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"E:\xampp\htdocs\film\public/../application/admin\view\film\film_list.html";i:1511513030;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511416120;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511375776;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:73:"E:\xampp\htdocs\film\public/../application/admin\view\film\film_list.html";i:1511542640;s:72:"E:\xampp\htdocs\film\public/../application/admin\view\public\header.html";i:1511432541;s:74:"E:\xampp\htdocs\film\public/../application/admin\view\public\admin_js.html";i:1511432541;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -198,7 +198,7 @@
             }
 
             /*-删除*/
-            function cate_del(name,id){
+            function f_del(name,id){
                 layer.confirm('确定要删除'+name+'影片吗？',{
                     btn:['确定','取消']
                 },function(index){

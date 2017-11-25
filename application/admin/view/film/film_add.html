@@ -13,7 +13,8 @@
                     </label>
                     <div class="layui-input-inline">
                       <div class="site-demo-upbar">
-                        <input type="file" name="image"  id="image">
+                          <img src="" id='show' width="30">
+                          <input type="file" name="image"  id="image" onchange="c()">
                       </div>
                     </div>
                 </div>
@@ -130,6 +131,16 @@
         </div>
         {include file="public/admin_js" /}
         <script src="./js/x-layui.js" charset="utf-8">
+        </script>
+        <script type="text/javascript">
+            function c () {
+                var r= new FileReader();
+                f=document.getElementById('image').files[0];
+                r.readAsDataURL(f);
+                r.onload=function  (e) {
+                    document.getElementById('show').src=this.result;
+                };
+            }
         </script>
 <!--        <script>-->
 <!--            layui.use(['form','layer','upload'], function(){-->

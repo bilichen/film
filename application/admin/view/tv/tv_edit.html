@@ -22,7 +22,7 @@
                     </label>
                     <div class="layui-input-inline">
                       <div class="site-demo-upbar">
-                          <img  src="__ROOT__/uploads/{$film.image}"  width="30">
+                          <img  src="__ROOT__/uploads/{$tv.image}"  width="30">
                       </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <input type="text" id="name" name="name" required="" lay-verify="required"
-                               autocomplete="off" class="layui-input" value="{$film.name}">
+                               autocomplete="off" class="layui-input" value="{$tv.name}">
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                         <select name="type">
                             {volist name='type' id='v'}
 <!--                                 <option value="{$v.name}">{$v.name}</option>-->
-                            <option {eq name="film.type" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
+                            <option {eq name="tv.type" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -57,7 +57,7 @@
                         <select name="country">
                             {volist name='country' id='v'}
 <!--                                  <option value="{$v.name}">{$v.name}</option>-->
-                            <option {eq name="film.country" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
+                            <option {eq name="tv.country" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -69,7 +69,7 @@
                         <select name="format">
                             {volist name='format' id='v'}
 <!--                                <option value="{$v.name}">{$v.name}</option>-->
-                            <option {eq name="film.format" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
+                            <option {eq name="tv.format" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -83,7 +83,7 @@
                         <select name="release">
                             {volist name='release' id='v'}
 <!--                                <option value="{$v.time}">{$v.time}</option>-->
-                            <option {eq name="film.release" value="$v['time']" }selected{/eq} value="{$v['time']}">{$v['time']}</option>
+                            <option {eq name="tv.release" value="$v['time']" }selected{/eq} value="{$v['time']}">{$v['time']}</option>
                             {/volist}
                         </select>
                     </div>
@@ -95,7 +95,7 @@
                         <select name="drive">
                             {volist name='drive' id='v'}
 <!--                                 <option value="{$v.name}">{$v.name}</option>-->
-                            <option {eq name="film.drive" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
+                            <option {eq name="tv.drive" value="$v['name']" }selected{/eq} value="{$v['name']}">{$v['name']}</option>
 
                             {/volist}
                         </select>
@@ -110,7 +110,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <input type="text" id="size" name="size" required="" lay-verify="required"
-                        autocomplete="off" class="layui-input" value="{$film.size}">
+                        autocomplete="off" class="layui-input" value="{$tv.size}">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -119,7 +119,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <input type="text" id="score" name="score" required="" lay-verify="required"
-                        autocomplete="off" class="layui-input" value="{$film.score}">
+                        autocomplete="off" class="layui-input" value="{$tv.score}">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -129,12 +129,12 @@
                     <div class="layui-input-inline">
 <!--                        <input type="tex" id="desc" name="desc" required="" lay-verify="required"-->
 <!--                        autocomplete="off" class="layui-input">-->
-                        <textarea rows="3" cols="50" id="desc" name="desc" value="{$film.desc}">
+                        <textarea rows="3" cols="50" id="desc" name="desc" value="{$tv.desc}">
 
                         </textarea>
                     </div>
                 </div>
-                <input type="hidden" name="id" value="{$film.id}">
+                <input type="hidden" name="id" value="{$tv.id}">
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                     </label>

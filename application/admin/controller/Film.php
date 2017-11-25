@@ -12,6 +12,7 @@ use app\admin\model\Format;
 use app\admin\model\Release;
 use app\admin\model\Type;
 
+
 class Film extends Base
 {
     //显示电影列表
@@ -20,7 +21,7 @@ class Film extends Base
 //        $data = FilmModel::all(function($query){
 //            $query->order('desc');
 //        });
-        $data =  FilmModel::order('desc')->paginate(10);
+        $data =  FilmModel::order('id','desc')->paginate(10);
 
          $count =  FilmModel::count();
 //        $data = collection($data)->toArray();
@@ -80,7 +81,6 @@ class Film extends Base
         //
         $film =  FilmModel::get($id);
 //        p($film);die;
-
         $this->assign('film',$film);
         $this->loadSelectData();
         return $this->fetch('film_edit');
@@ -114,14 +114,26 @@ class Film extends Base
         }
     }
 
-    /**
-     * 删除指定资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
+    public function update(){
+        $data = $this->request->param();
+//        p($data);die;
+       $res = FilmModel::where('id', $data['id'])->update($data);
+        if(is_null($res)){
+            $this->error('文件修改失败');
+        }else{
+
+            $this->success('文件修改成功...');
+        }
+
+    }
+
+    //删除
     public function delete($id)
     {
-        //
+
+        FilmModel::destroy($id);
+        $status = 1;
+        $message = '删除成功';
+        return ['status' => $status, 'message' => $message];
     }
 }
