@@ -21,9 +21,10 @@
                   <dl class="prel hidden-sm hidden-xs">
                     <dt>影视类型:</dt>
                     <dd>
-                      <a href="/film-download/1-0-0-0-0-0.html" class="tag-sm tag-type">不限</a>
+
+                      <a {eq name="$type_name" value="不限" }class="tag-sm tag-type"{/eq} href="{:url('film/change', ['name' => 'type','type_name' => '不限'])}" >不限</a>
                      {volist name='type' id='v'}
-                          <a href='{:url("film/changeType")' >{$v.name}</a>
+                          <a {eq name="$type_name" value="$v['name']" }class="tag-sm tag-type"{/eq} href="{:url('film/change', ['name' => 'type','type_name' => $v['name']])}">{$v.name}</a>
                       {/volist}
                     </dd>
                   </dl>
@@ -31,9 +32,9 @@
                   <dl class="prel hidden-sm hidden-xs">
                     <dt>制片地区:</dt>
                     <dd>
-                      <a href="/film-download/1-0-0-0-0-0.html" class="tag-sm bg--primary">不限</a>
+                      <a {eq name="$country_name" value="不限" }class="tag-sm bg--primary"{/eq} href="{:url('film/change', ['name' => 'country','country_name' => '不限'])}">不限</a>
                       {volist name='country' id='v'}
-                      <a href="/film-download/1-1-0-0-0-0.html" >{$v.name}</a>
+                      <a {eq name="$country_name" value="$v['name']" }class="tag-sm bg--primary"{/eq} href="{:url('film/change', ['name' => 'country','country_name' => $v['name']])}" >{$v.name}</a>
                       {/volist}
 
 
@@ -43,16 +44,16 @@
                   <dl class="prel hidden-sm hidden-xs">
                     <dt>上映年份:</dt>
                     <dd>
-                      <a href="/film-download/1-0-0-0-0-0.html" class="tag-sm tag-size">不限</a>
+                      <a {eq name="$release_time" value="不限" }class="tag-sm tag-size"{/eq}  href="{:url('film/change', ['name' => 'release','release_time' => '不限'])}">不限</a>
                       {volist name='release' id='v'}
-                      <a href="/film-download/1-1-0-0-0-0.html" >{$v.time}</a>
+                      <a  {eq name="$release_time" value="$v['time']" }class="tag-sm tag-size"{/eq} href="{:url('film/change', ['name' => 'release','release_time' => $v['time']])}">{$v.time}</a>
                       {/volist}
                     </dd>
                   </dl>
                   <dl class="prel type--bold">
                     <dt>影视排序:</dt>
                     <dd>
-                      <a href="/film-download/1-0-0-0-1-0.html" class="tag-sm tag-picture2">资源更新</a><a href="/film-download/1-0-0-0-3-0.html" >豆瓣评分</a></dd>
+                      <a {eq name="$order_name" value="更新时间"}class="tag-sm tag-picture2"{/eq} href="{:url('film/change', ['name' => 'order','order_name' => '更新时间'])}">资源更新</a><a {eq name="$order_name" value="评分" }class="tag-sm tag-picture2"{/eq} href="{:url('film/change', ['name' => 'order','order_name' => '评分'])}" >豆瓣评分</a></dd>
                   </dl>
                 </div>
 
@@ -71,7 +72,6 @@
                   <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="电影">
                     <a href="/mv/25584.html" target="_blank" class="block text-block">
                       <figure class="effect-sadie">
-<!--                        <img src="{$v.image}" class="lazy" style="width: 100%" alt="{$v.name}" data-original="{$v.image}" />-->
                         <img  src="__ROOT__/uploads/{$v.image}"  width="250" height="350">
                         <figcaption>
                           <h2>{$v.name}<br><span>{$v.release}</span></h2>
