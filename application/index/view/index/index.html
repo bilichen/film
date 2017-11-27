@@ -31,7 +31,7 @@
 
                             {volist name='film' id='v'}
                                 <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="电影">
-                                    <a href="/mv/25584.html" target="_blank" class="block text-block">
+                                    <a href="{:url('show/index', ['name' => 'film','id' => $v['id']])} target="_blank" class="block text-block">
                                         <figure class="effect-sadie">
                                             <img  src="__ROOT__/uploads/{$v.image}"  width="250" height="350">
                                             <figcaption>
@@ -92,7 +92,7 @@
     $(".tabs-content li:first").addClass("active")
 
 </script>
-<script src="//cdn.bt0.com/js/bundle.min.js"></script>
+
 
 <script>
     $(document).ready(function () {

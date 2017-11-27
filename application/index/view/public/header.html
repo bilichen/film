@@ -62,7 +62,8 @@
 
                             <li>
                                 <a href="#" data-notification-link="search-box">
-                                    <i class="stack-search"></i>
+<!--                                    <i class="stack-search"></i>-->
+                                    <img  src="__ROOT__/static/index/images/search.png"  width="20" height="20">
                                 </a>
                             </li>
                         </ul>
@@ -76,15 +77,15 @@
 
     </nav>
     <div class="notification pos-top pos-right search-box bg--semi border--bottom" data-animation="from-top" data-notification-link="search-box">
-        <form action="/e/search/" method="post">
+        <form action="{:url('search/index')}" method="post">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 navbar-form">
-                    <input class="form-control" type="search" name="keyboard" placeholder="输入关键词并按下Enter键搜索 电影条目" />
-                    <input type="hidden" name="show" value="title,ename,called,director,screenwriter,star,imdb,douban_id,awards">
-                    <input type="hidden" name="classid" value="1,3">
-                    <input type="hidden" name="tbname" value="movie">
-                    <input type="hidden" name="tempid" value="1">
-                    <input type="hidden" name="orderby" value="onclick">
+                    <input class="form-control" type="search" name="search_name" placeholder="输入关键词并按下Enter键搜索 电影条目" />
+<!--                    <input type="hidden" name="show" value="title,ename,called,director,screenwriter,star,imdb,douban_id,awards">-->
+<!--                    <input type="hidden" name="classid" value="1,3">-->
+<!--                    <input type="hidden" name="tbname" value="movie">-->
+<!--                    <input type="hidden" name="tempid" value="1">-->
+<!--                    <input type="hidden" name="orderby" value="onclick">-->
                 </div>
             </div>
             <!--end of row-->

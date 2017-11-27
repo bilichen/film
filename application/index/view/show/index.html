@@ -1,0 +1,78 @@
+{include file="public/header" /}
+
+<div class="main-container">
+
+  <section class="imagebg bg--dark" style="background:#1a151c;padding-bottom: 3em;">
+      <div class="container" style="margin-top: 3em;">
+
+        <div class="col-md-4">
+          <div class="masonry masonry-demos">
+            <div class="masonry__container masonry--active">
+
+              <div class="masonry__item">
+                <div>
+                  <img style="border-radius:10px " alt="{$data.name}" src="__ROOT__/uploads/{$data.image}">
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" style="margin-bottom:2em">
+          <span class="info-title">{$data.name}</span><br>
+          <span class="tiny-title">豆瓣评分: <span style="font-size: 2em;font-weight: 700;color:#fc9b35;" > {$data.score}</span></span>
+
+
+          <span class="tiny-title">又名: {$data.name}</span>                    <span class="tiny-title">上映日期: {$data.release}</span>                    <span class="tiny-title">类型: {$data.type}</span>                    <span  class="tiny-title">片长: xxx分钟</span>                    <span  class="tiny-title">上映地区: {$data.country}</span>
+
+        </div>
+        <div class="col-md-4">
+          <div class="summary-card">
+            <span class="summary-title" >剧情:</span>
+            <article class="information-text">
+                        <span property="v:summary">
+                                　{$data.desc}
+                        </span>                    </article>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+</div>
+
+</section>
+
+<!--关联影片区域-->
+
+<footer class="space--sm footer bg--dark " style="background: #0f0b11;">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-6">
+                            <span class="type--fine-print">&copy;
+                              <span class="update-year"></span>http://www.mmmhd.com/</span>
+      </div>
+      <div class="col-sm-6 text-right text-left-xs">
+        <ul class="social-list list-inline list--hover">
+
+        </ul>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</footer>
+
+</div>
+
+{include file="public/base_js" /}
+
+</body>
+</html>

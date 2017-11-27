@@ -1,0 +1,93 @@
+{include file="public/header" /}
+<div class="background-overlay"></div>
+
+<div class="main-container">
+
+  <section class="imagebg" style="padding-bottom: 0">
+
+    <div class="background-image-holder" style="background: url(http://image.bt0.com/background/background13.jpg); opacity: 1;height: 700px;">
+      <img alt="background" src="http://image.bt0.com/background/background13.jpg">
+    </div>
+    <!--end of container-->
+  </section>
+
+
+
+
+  <section class="bg--dark" style="padding-top: 1em;padding-bottom: 3em;margin-top: -1em;">
+
+    <div class="container" style="position: relative;z-index: 9">
+      <div class="row">
+        <div class="col-md-12 text-center"><h2>找到 <span class="type--bold" style="color: #4a90e2">{$count}</span> 条 关键词为 <span class="type--bold" style="color: #4a90e2">{$search_name}</span> 的影视条目</h2></div>
+
+        <div class="col-sm-12 text-center">
+          <div class="masonry masonry-demos">
+
+            <div class="masonry-filter-container text-center">
+              <span>类别:</span>
+              <div class="masonry-filter-holder">
+                <div class="masonry__filters" data-filter-all-text="所有类别"></div>
+              </div>
+            </div>
+
+            <div class="masonry__container">
+              {volist name='data' id='v'}
+                  <div class="masonry__item col-md-3 col-sm-6" >
+                    <a href="" class="block text-block">
+                      <div class="hover-shadow">
+                        <img alt="{$v.name}" src="__ROOT__/uploads/{$v.image}"  width="250" height="350"/>
+                      </div>
+                    </a>
+                    <div class="text-center">
+                      <h5>{$v.name}<span class="type--fine-print">({$v.release})</span></h5>
+                    </div>
+                  </div>
+              {/volist}
+              <!--end of masonry container-->
+            </div>
+            <!--end masonry-->
+          </div>
+        </div>
+        <!--end of row-->
+      </div>
+    </div>
+
+    <!--end of container-->
+  </section>
+
+
+
+
+  <footer class="space--sm footer bg--dark " style="background: #0f0b11;">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-6">
+                            <span class="type--fine-print">&copy;
+                              <span class="update-year"></span> bt0.com</span>
+        </div>
+        <div class="col-sm-6 text-right text-left-xs">
+          <ul class="social-list list-inline list--hover">
+
+          </ul>
+        </div>
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </footer>
+</div>
+{include file="public/base_js" /}
+<script>
+  $("img.lazy").lazyload({
+    threshold : 200
+  });
+
+  $(".tabs li:first").addClass("active")
+
+  $(".tabs-content li:first").addClass("active")
+
+</script>
+
+</body>
+</html>

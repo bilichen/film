@@ -70,7 +70,7 @@
             <div class="masonry__container">
               {volist name='film' id='v'}
                   <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="电影">
-                    <a href="/mv/25584.html" target="_blank" class="block text-block">
+                    <a  href="{:url('show/index', ['name' => 'film','id' => $v['id']])}" target="_blank" class="block text-block">
                       <figure class="effect-sadie">
                         <img  src="__ROOT__/uploads/{$v.image}"  width="250" height="350">
                         <figcaption>
@@ -90,17 +90,7 @@
             <!--end of masonry container-->
           </div>
           <!--end masonry-->
-<!--          <div class="pagination">-->
-<!--            <div class="col-xs-12 text-center hidden-md hidden-lg">-->
-<!--              <a class="type--fine-print" href="/film-download/1-0-0-0-0-1.html">下一页 >></a>-->
-<!--            </div>-->
-<!---->
-<!--          </div>-->
-<!--          <div class="text-center hidden-sm hidden-xs">-->
-<!--            <ul class='tsc_pagination tsc_paginationA tsc_paginationA06'>-->
-<!--              <li class="active"><span class="current">1</span></li><li><a class="num" href="/film-download/1-0-0-0-0-1.html">2</a></li><li><a class="num" href="/film-download/1-0-0-0-0-2.html">3</a></li><li><a class="num" href="/film-download/1-0-0-0-0-3.html">4</a></li><li><a class="num" href="/film-download/1-0-0-0-0-4.html">5</a></li><li><a class="num" href="/film-download/1-0-0-0-0-5.html">6</a></li><li><a class="num" href="/film-download/1-0-0-0-0-6.html">7</a></li><li><a class="num" href="/film-download/1-0-0-0-0-7.html">8</a></li><li><a class="num" href="/film-download/1-0-0-0-0-8.html">9</a></li><li><a class="num" href="/film-download/1-0-0-0-0-9.html">10</a></li><li><a class="next" href="/film-download/1-0-0-0-0-1.html">&nbsp;</a><li><a class="end" href="/film-download/1-0-0-0-0-1004.html">...1005</a></li>-->
-<!--            </ul>-->
-<!--          </div>-->
+
           <div style="text-align: center">{$film->render()}</div>
         </div>
 
@@ -166,7 +156,6 @@
   $(".tabs-content li:first").addClass("active")
 
 </script>
-<script src="//cdn.bt0.com/js/bundle.min.js"></script>
 
 </body>
 </html>

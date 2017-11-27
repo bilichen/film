@@ -20,6 +20,20 @@ function p($array){
     dump($array,1,'<pre>',0);
 
 }
+function array_add($a1,$a2){
+    $n = 0;
+    foreach ($a1 as $key => $value) {
+        $re[$n] = $value;
+        $n++;
+    }
+    foreach ($a2 as $key => $value) {
+        $re[$n] = $value;
+        $n++;
+    }
+    return $re;
+}
+
+
 
 function loadSelectData(){
 //    p($this);die;
