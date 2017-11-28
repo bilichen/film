@@ -8,7 +8,7 @@ return [
     // 应用Trace
     'app_trace'              => true,
 
-
+    // 缓存
     'cache'  => [
         // 缓存类型为File
         'type'   => 'File',
@@ -19,9 +19,13 @@ return [
         // 缓存有效期为永久有效
         'expire' => 0,
     ],
+
+    //分页
     'paginate'               => [
         'type'      => 'page\Page',//分页类
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    
 ];

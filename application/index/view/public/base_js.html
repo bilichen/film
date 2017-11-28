@@ -1,3 +1,19 @@
 <script src="__STATIC__/index/js/jquery.min.js"></script>
 <script src="__STATIC__/index/js/jquery.lazyload.js"></script>
 <script src="__STATIC__/index/js/bundle.min.js"></script>
+<script src="__STATIC__/index/js/jquery.fly.min.js"></script>
+<script src="__STATIC__/index/js/nav.js"></script>
+
+<script>
+    // Check car_num
+    if (typeof(Storage) !== "undefined") {
+//       localStorage.clear();//清空
+        if(localStorage.getItem("car_num")==null){
+            $(".tab-sub").text(0);
+        }else{
+            $(".tab-sub").text(localStorage.getItem("car_num"));
+        }
+    } else {
+        $(".tab-sub").text("抱歉！您的浏览器不支持 Web Storage ...");
+    }
+</script>

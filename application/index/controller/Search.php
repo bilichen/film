@@ -10,7 +10,6 @@ use think\Request;
 class Search extends Base{
     public function index(Request $request)
     {
-
         $search_name = $request->param('search_name');
         $map['name']=array('like','%'.$search_name.'%');
         $data1 = Film::order('id','desc')->where($map)->paginate(12);

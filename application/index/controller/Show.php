@@ -13,7 +13,7 @@ class Show extends Base{
 
         $name = $request->param('name');
         $id = $request->param('id');
-        if('film'==$name){
+        if('film'==$name || '电影'==$name){
             $data = Film::get($id);
         }else{
             $data = Tv::get($id);
